@@ -1,11 +1,19 @@
-let arr = [1,2,3,4,'html','css'];
-
+let inp = document.getElementById('inp');
+let btn = document.getElementById('btn');
 let list = document.getElementById('list');
+let todo = [];
 
-arr.forEach( item=> list.innerHTML += `<li> ${item}<button>Delete</button> </li>` );
+function add(){
+    todo.push(inp.value);
+    inp.value = '';
 
-let newArr =  arr.forEach( (item,index, arr)=>{
-    return item;
-} )
+    let data = '';
+    for(let item of todo){
+        data += `<li class="list-group-item"> ${item} </li>`
+    }
 
-console.log(newArr);
+    list.innerHTML = data;
+
+}
+
+btn.addEventListener('click', add);
